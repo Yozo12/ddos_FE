@@ -9,6 +9,7 @@ export class AppComponent {
   title = 'frontend';
   bntStyle: string = '';
   body: string = '';
+  impostazioni: string='';
 
   openNav() {
     this.bntStyle = 'open'
@@ -18,5 +19,15 @@ export class AppComponent {
   closeNav() {
     this.bntStyle = 'close'
     this.body='bodyClosed'
+  }
+  openImpostazioni(){
+    this.impostazioni='open'
+    this.body='bodyOpen'
+
+  }
+  closeImpostazioni(){
+    this.impostazioni='close'
+    this.body='bodyClosed'
+
   }
 }

@@ -1,27 +1,35 @@
 <html [ngClass]="[body]">
 <body>
-<div style="position: sticky">
-  <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
-      <div [ngClass]="[bntStyle]" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
-        <a href="#">Home <i class="bi bi-house-door-fill"></i></a>
-        <a href="#">Archivio <i class="bi bi-archive-fill"></i></a>
-      </div>
-      <span style="font-size:35px;cursor:pointer;position:relative; left:18px ; top: 0px "
-            (click)="openNav()">&#9776;</span>
-<!--      impostazioni-->
-      <div [ngClass]="[impostazioni]" class="sidenav_right">
-        <a href="javascript:void(0)" class="closebtn" (click)="closeImpostazioni()">&times;</a>
-        <a href="#">Impostazioni Profilo <i class="bi bi-person-fill-gear"></i></a>
-        <a href="#">Impostazioni App <i class="bi bi-house-gear-fill"></i></a>
-      </div>
-      <span style="font-size:35px;cursor:pointer;position:fixed; right:18px ; top: 15px "
-            (click)="openImpostazioni()"> <i class="bi bi-gear-wide-connected"></i></span>
-    </a>
-  </nav>
-
+<div>
+  <div style="position: sticky">
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">
+        <div [ngClass]="[bntStyle]" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+          <a href="#" (click)="closeNav();changeComponent('home')">Home <i class="bi bi-house-door-fill"></i></a>
+          <a href="#" (click)="closeNav()">Archivio <i class="bi bi-archive-fill"></i></a>
+        </div>
+        <span style="font-size:35px;cursor:pointer;position:relative; left:18px ; top: 0px "
+              (click)="openNav()">&#9776;</span>
+        <!--      impostazioni-->
+        <div [ngClass]="[impostazioni]" class="sidenav_right">
+          <a href="javascript:void(0)" class="closebtn" (click)="closeImpostazioni()">&times;</a>
+          <a href="#" (click)="closeImpostazioni();changeComponent('impostazioni')">Impostazioni Profilo <i
+            class="bi bi-person-fill-gear"></i></a>
+          <a href="#" (click)="closeImpostazioni()">Impostazioni App <i class="bi bi-house-gear-fill"></i></a>
+        </div>
+        <span style="font-size:35px;cursor:pointer;position:fixed; right:18px ; top: 15px "
+              (click)="openImpostazioni()"> <i class="bi bi-gear-wide-connected"></i></span>
+      </a>
+    </nav>
+  </div>
 </div>
-
+<container-element [ngSwitch]="switch_expression">
+  <app-impostazioni *ngSwitchCase="'impostazioni'" [impostazioniStile]=childStyle></app-impostazioni>
+  <app-home *ngSwitchCase="'home'" [impostazioniStile]=childStyle></app-home>
+  <!--  <ng-container *ngSwitchCase="match_expression_3">-->
+  <!--    &lt;!&ndash; use a ng-container to group multiple root nodes &ndash;&gt;-->
+  <!--  </ng-container>-->
+</container-element>
 </body>
 </html>

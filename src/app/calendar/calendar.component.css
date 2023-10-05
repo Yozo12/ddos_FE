@@ -16,8 +16,8 @@ iframe {
 
 @media only screen and (max-width: 750px) {
   iframe {
-    width: 250px;
-    height: 250px;
+    width: 350px;
+    height: 350px;
   }
 
   .calendar {

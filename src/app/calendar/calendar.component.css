@@ -3,19 +3,25 @@
   width: 0px;
 }
 
+iframe {
+  width: 900px;
+  height: 900px;
+}
+
 .calendar {
   position: absolute;
   margin-top: 5%;
-  left: 37%;
+  left: 20%;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 750px) {
   iframe {
-    width: 250px;
-    height: 250px;
+    width: 350px;
+    height: 350px;
   }
-  .calendar{
-    left :20%
+
+  .calendar {
+    left: 35%;
   }
 }
 
